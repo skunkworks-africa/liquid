@@ -1,0 +1,24 @@
+name: Deploy Shopify theme
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        options: [development, production]
+        default: development
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --global @shopify/cli@latest
+      - name: Push unpublished theme
+        if: github.event.inputs.environment == 'development'
+        run: shopify theme push --unpublished --store "${{ secrets.SHOPIFY_STORE }}" --password "${{ secrets.SHOPIFY_THEME_ACCESS_PASSWORD }}"
+      - name: Push live theme
+        if: github.event.inputs.environment == 'production'
+        run: shopify theme push --live --allow-live --store "${{ secrets.SHOPIFY_STORE }}" --password "${{ secrets.SHOPIFY_THEME_ACCESS_PASSWORD }}"

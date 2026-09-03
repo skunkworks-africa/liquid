@@ -1,0 +1,20 @@
+[
+  {"name":"theme_info","theme_name":"Skunkworks Horizon","theme_version":"1.0.0","theme_author":"Skunkworks Africa","theme_documentation_url":"https://github.com/skunkworks-africa/liquid","theme_support_url":"https://github.com/skunkworks-africa/liquid/issues"},
+  {"name":"Brand","settings":[
+    {"type":"image_picker","id":"logo","label":"Logo"},
+    {"type":"color","id":"color_brand","label":"Brand color","default":"#111827"},
+    {"type":"color","id":"color_accent","label":"Accent color","default":"#f97316"},
+    {"type":"color","id":"color_background","label":"Background","default":"#ffffff"},
+    {"type":"color","id":"color_text","label":"Text","default":"#111827"},
+    {"type":"color","id":"color_muted","label":"Muted text","default":"#6b7280"}
+  ]},
+  {"name":"Layout","settings":[
+    {"type":"range","id":"page_width","label":"Maximum page width","min":1000,"max":1600,"step":50,"unit":"px","default":1200},
+    {"type":"range","id":"radius","label":"Corner radius","min":0,"max":24,"step":2,"unit":"px","default":8}
+  ]},
+  {"name":"Social","settings":[
+    {"type":"url","id":"social_linkedin","label":"LinkedIn URL"},
+    {"type":"url","id":"social_youtube","label":"YouTube URL"},
+    {"type":"url","id":"social_instagram","label":"Instagram URL"}
+  ]}
+]
